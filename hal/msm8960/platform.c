@@ -594,10 +594,10 @@ snd_device_t platform_get_output_snd_device(void *platform, audio_devices_t devi
         goto exit;
     }
 
-    if(devices & AUDIO_DEVICE_OUT_PROXY) {
-        ALOGD("%s: setting sink capability for Proxy", __func__);
-        audio_extn_set_afe_proxy_channel_mixer(adev);
-    }
+//    if(devices & AUDIO_DEVICE_OUT_PROXY) {
+//        ALOGD("%s: setting sink capability for Proxy", __func__);
+//        audio_extn_set_afe_proxy_channel_mixer(adev);
+//    }
 
     if (mode == AUDIO_MODE_IN_CALL) {
         if (devices & AUDIO_DEVICE_OUT_WIRED_HEADPHONE ||
@@ -672,10 +672,10 @@ snd_device_t platform_get_output_snd_device(void *platform, audio_devices_t devi
         snd_device = SND_DEVICE_OUT_USB_HEADSET;
     } else if (devices & AUDIO_DEVICE_OUT_EARPIECE) {
         snd_device = SND_DEVICE_OUT_HANDSET;
-    } else if (devices & AUDIO_DEVICE_OUT_PROXY) {
-        ALOGD("%s: setting sink capability for Proxy", __func__);
-        audio_extn_set_afe_proxy_channel_mixer(adev);
-                snd_device = SND_DEVICE_OUT_AFE_PROXY;
+//    } else if (devices & AUDIO_DEVICE_OUT_PROXY) {
+//        ALOGD("%s: setting sink capability for Proxy", __func__);
+//        audio_extn_set_afe_proxy_channel_mixer(adev);
+//                snd_device = SND_DEVICE_OUT_AFE_PROXY;
     } else {
         ALOGE("%s: Unknown device(s) %#x", __func__, devices);
     }
